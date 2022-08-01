@@ -57,10 +57,6 @@
                                 <div class="task-params tags">
                                     <h4>Tags</h4>
                                     <div>
-                                        <input type="checkbox" id="code" name="code">
-                                        <label for="code">Code</label>
-                                    </div>
-                                    <div>
                                         <input type="checkbox" id="computer" name="computer">
                                         <label for="computer">Computer</label>
                                     </div>
@@ -69,8 +65,30 @@
                                         <label for="irl">IRL</label>
                                     </div>
                                     <div>
+                                        <input type="checkbox" id="code" name="code">
+                                        <label for="code">Code</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="book" name="book">
+                                        <label for="book">Book</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="sport" name="sport">
+                                        <label for="sport">Sport</label>
+                                    </div>
+                                    <div>
                                         <input type="checkbox" id="want" name="want">
                                         <label for="want">Want</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="need" name="need">
+                                        <label for="need">Need</label>
+                                    </div>
+                                </div>
+                                <div class="task-params due-date">
+                                    <div>
+                                        <input type="date" id="due-date" name="due-date">
+                                        <label for="due-date">Due Date</label>
                                     </div>
                                 </div>
                                 <button id="add-task" class="btn"><span class="sr-only">Add Task</span>+</button>
@@ -101,7 +119,16 @@
                 </div>
                 <div class="task-container">
                     <div class="task flex">
-                        <p>Some random task to do</p>
+                        <div class="badge priority-badge">!!!</div>
+                        <div class="task-tags">
+                            <div class="tag">PC</div>
+                            <div class="tag">Code</div>
+                            <div class="tag">Need</div>
+                        </div>
+                        <p class="task description">Some random task to do</p>
+                        <p id="task-due-date">03/08/2022</p>
+                        <input type="checkbox" id="task-status" class="task-status">
+                        <label for="task-status"><span class="sr-only">Status</span></label>
                     </div>
                 </div>
             </div>
