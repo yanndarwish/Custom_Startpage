@@ -16,12 +16,72 @@
         </div>
         <div>
             <h3 id="time"></h3>
-            <h3 id="date"></h3>
+            <p id="date"></p>
         </div>
     </header>
     <main>
-    
         <!-- todo: todo list section with tags (task irl, task geeky, ideas, envy ...) -->
+        <button id="task-btn" class="btn">Tasks</button>
+        <section id="task-section" class="section">
+            <div class="section-header">
+                <h3 class="section-title">Tasks</h3>
+            </div>
+            <div class="section-content">
+                <form action="">
+                    <label for="task-input"><span class="sr-only">Add Task</span></label>
+                    <input type="text" id="task-input">
+                    <button id="open-task-settings" class="btn"><span class="sr-only">Add</span>+</button>
+                </form>
+                <div id="add-task-overlay" class="overlay">
+                    <div id="add-task-modal" class="modal">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Task Infos</h3>
+                        </div>
+                        <div class="modal-content">
+                            <form action="">
+                                <div class="task-params priority">
+                                    <h4>Priority</h4>
+                                    <div>
+                                        <input type="radio" id="high" name="priority" value="high" checked>
+                                        <label for="high">!!!</label>
+                                      </div>
+                                  
+                                      <div>
+                                        <input type="radio" id="medium" name="priority" value="medium">
+                                        <label for="medium">!!</label>
+                                      </div>
+                                  
+                                      <div>
+                                        <input type="radio" id="small" name="priority" value="high">
+                                        <label for="small">!</label>
+                                      </div>
+                                </div>
+                                <div class="task-params tags">
+                                    <h4>Tags</h4>
+                                    <div>
+                                        <input type="checkbox" id="code" name="code">
+                                        <label for="code">Code</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="computer" name="computer">
+                                        <label for="computer">Computer</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="irl" name="irl">
+                                        <label for="irl">IRL</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="want" name="want">
+                                        <label for="want">Want</label>
+                                    </div>
+                                </div>
+                                <button id="add-task" class="btn"><span class="sr-only">Add Task</span>+</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- todo: tile editor, to create update, delete a tile -->
         <!-- todo: book to read section, search algo from a book api, formatting the results into sql database -->
         <!-- todo: for the boook section, create the perfect book object, with all the properties, and methods (api calls) -->
