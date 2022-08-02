@@ -16,27 +16,27 @@ class TaskList {
                 <button class="btn delete-task" data-id="${task.id}">
                     <i class="fas fa-trash-alt" data-id="${task.id}"></i>
                 </button>
-                <div class="badge task-id flex center">${task.id}</div>
                 <div class="task-tags flex">
                 </div>
                 <p class="task-description">${task.description}</p>
-                <div class="flex">
+                <div class="task-infos flex">
                     <p id="task-due-date">${task.due_date}</p>
                     <div>
-                        <input type="checkbox" id="task-status" class="task-status">
-                        <label for="task-status"><span class="sr-only">Status</span>Done ?</label>
+                        <input type="checkbox" id="task-status-${task.id}" class="task-status" data-id="${task.id}">
+                        <label class="status-label flex center" for="task-status-${task.id}"><span class="sr-only">Status</span><i class="fas fa-check-circle"></i></label>
                     </div>
                 </div>
                 `
     
                 this.$wrapper.innerHTML = taskItem
                 task.tags.forEach(tag => {
-                    this.$wrapper.querySelector('.task-tags').innerHTML += `<div class="tag flex center ${tag}"></div>`
+                    this.$wrapper.querySelector('.task-tags').innerHTML += `<div class="tag flex center ${tag}"><span class="sr-only">${tag}</span></div>`
                 })
                 
                 this.$container.appendChild(this.$wrapper)
             });
             this.handleDeleteBtn()
+            this.handleDoneBtn()
         }
     }
 
@@ -50,6 +50,26 @@ class TaskList {
                 
                 localStorage.setItem('tasks', JSON.stringify(remainingTasks))
                 this.render(remainingTasks)
+            })
+        })
+    }
+
+    // todo handle done button
+    handleDoneBtn() {
+        document.querySelectorAll('.task-status').forEach(btn => {
+            btn.addEventListener('click', e => {
+                let selectedId = e.target.getAttribute('data-id')
+                let myTasks = JSON.parse(localStorage.getItem('tasks'))
+                let selectedTask = myTasks.find(elt => elt.id == selectedId)
+
+                if (e.target.checked) {
+                    selectedTask.done = true
+                    e.target.parentNode.parentNode.parentNode.classList.add('done')
+                } else {
+                    selectedTask.done = false
+                    e.target.parentNode.parentNode.parentNode.classList.remove('done')
+                }
+                console.log(selectedTask)
             })
         })
     }
