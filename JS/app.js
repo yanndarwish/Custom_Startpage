@@ -14,6 +14,13 @@ class App {
 
         const date = new MyDate()
         date.render()
+
+        const task = new Tasks()
+        task.handleEditBtn()
+        task.displayTasks()
+
+        // const tasklist = new TaskList()
+        // tasklist.render(JSON.parse(localStorage.getItem('tasks')))
     }
 }
 
