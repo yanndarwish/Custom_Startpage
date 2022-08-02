@@ -4,15 +4,18 @@ class TaskList {
         this.$container = document.querySelector('.task-container')
     }
 
-    render() {
-        console.log(this.Tasks)
+    render(Tasks) {
+        console.log(Tasks)
         this.$container.innerHTML = ""
-        if (this.Tasks) {
-            this.Tasks.forEach(task => {
+        if (Tasks) {
+            Tasks.forEach(task => {
                 this.$wrapper = document.createElement('div')
                 this.$wrapper.classList.add('task', 'flex', task.priority)
     
                 const taskItem = `
+                <button class="btn delete-task" data-id="${task.id}">
+                    <i class="fas fa-trash-alt" data-id="${task.id}"></i>
+                </button>
                 <div class="badge task-id flex center">${task.id}</div>
                 <div class="task-tags flex">
                 </div>
@@ -28,15 +31,27 @@ class TaskList {
     
                 this.$wrapper.innerHTML = taskItem
                 task.tags.forEach(tag => {
-                    console.log(tag)
                     this.$wrapper.querySelector('.task-tags').innerHTML += `<div class="tag flex center ${tag}"></div>`
                 })
                 
                 this.$container.appendChild(this.$wrapper)
             });
+            this.handleDeleteBtn()
         }
     }
 
-    // todo remove task when click on trash icon
+    handleDeleteBtn() {
+        document.querySelectorAll('.delete-task').forEach(btn => {
+            btn.addEventListener('click', e => {
+                let selectedId = e.target.getAttribute('data-id')
+                let myTasks = JSON.parse(localStorage.getItem('tasks'))
+                let selectedTask = myTasks.find(elt => elt.id == selectedId)
+                let remainingTasks = myTasks.filter(elt => elt !== selectedTask)
+                
+                localStorage.setItem('tasks', JSON.stringify(remainingTasks))
+                this.render(remainingTasks)
+            })
+        })
+    }
 
 }

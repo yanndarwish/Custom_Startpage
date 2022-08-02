@@ -27,11 +27,12 @@ class Tasks {
     }
 
     handleAddBtn() {
+        // todo add notification to show number of tasks to do !
         this.$addTaskBtn.addEventListener('click', e => {
             e.preventDefault()
             // check for preexisting tasks and instanciate id
             let storedTasks = JSON.parse(localStorage.getItem('tasks'))
-            let id = !storedTasks ? 1 : storedTasks.length + 1
+            let id = !storedTasks || storedTasks.length === 0 ? 1 : storedTasks[storedTasks.length -1].id + 1
 
             // initiate task object from input data
             let taskDescription = document.querySelector('#task-description').value
@@ -87,9 +88,8 @@ class Tasks {
     }
 
     displayTasks() {
-        console.log(this.Tasks)
+        // display all the tasks in DOM
         const tasklist = new TaskList(this.Tasks)
-        tasklist.render()
-        
+        tasklist.render(this.Tasks)
     }
 }
