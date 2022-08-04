@@ -5,9 +5,9 @@ class TaskList {
     }
 
     render(Tasks) {
-        // todo add notification to show number of tasks to do !
         const notifications = new TaskNotification()
         notifications.render()
+        
         this.$container.innerHTML = ""
         if (Tasks) {
             Tasks.forEach(task => {
@@ -77,6 +77,9 @@ class TaskList {
 
                 const notifications = new TaskNotification()
                 notifications.render()
+
+                const myFilter = new Filter()
+                myFilter.updateFilter()
             })
         })
     }

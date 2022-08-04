@@ -19,6 +19,9 @@ class App {
         task.handleEditBtn()
         task.displayTasks()
 
+        const myFilter = new Filter()
+        myFilter.updateFilter()
+
         // const tasklist = new TaskList()
         // tasklist.render(JSON.parse(localStorage.getItem('tasks')))
     }

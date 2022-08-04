@@ -108,40 +108,73 @@
                 </div>
                 <div class="filter">
                     <form action="" class="flex column">
-                        <div class="priority-filter flex">
-    
-                        </div>
-                        <div class="tag-filter flex">
-    
-                        </div>
-                        <div class="status-filter flex">
+                        <div class="priority-filter-container flex">
                             <div>
-                                <input type="radio" id="done" name="status" value="done">
+                                <input type="radio" id="priority-high" class="priority-filter filter-option" name="priority-filter" data-value="high" value="high">
+                                <label for="priority-high">High</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="priority-medium" class="priority-filter filter-option" name="priority-filter" data-value="medium" value="medium">
+                                <label for="priority-medium">Medium</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="priority-small" class="priority-filter filter-option" name="priority-filter" data-value="small" value="small">
+                                <label for="priority-small">Small</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="priority-all" class="priority-filter filter-option" name="priority-filter" data-value="all" value="all">
+                                <label for="priority-all">All</label>
+                            </div>
+                        </div>
+                        <div class="tag-filter-container flex">
+                            <div>
+                                <input type="checkbox" id="filter-computer" class="tag-filter filter-option" data-value="computer" name="filter-computer">
+                                <label for="filter-computer">Computer</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="filter-irl" class="tag-filter filter-option" data-value="irl" name="filter-irl">
+                                <label for="filter-irl">IRL</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="filter-code" class="tag-filter filter-option" data-value="code" name="filter-code">
+                                <label for="filter-code">Code</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="filter-book" class="tag-filter filter-option" data-value="book" name="filter-book">
+                                <label for="filter-book">Book</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="filter-sport" class="tag-filter filter-option" data-value="sport" name="filter-sport">
+                                <label for="filter-sport">Sport</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="filter-want" class="tag-filter filter-option" data-value="want" name="filter-want">
+                                <label for="filter-want">Want</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="filter-need" class="tag-filter filter-option" data-value="need" name="filter-need">
+                                <label for="filter-need">Need</label>
+                            </div>
+                        </div>
+                        <div class="status-filter-container flex">
+                            <div>
+                                <input type="radio" id="done" class="status-filter filter-option" data-value="True" name="status-filter" value="True">
                                 <label for="done">Done</label>
                             </div>
                             <div>
-                                <input type="radio" id="to-do" name="status" value="to-do">
+                                <input type="radio" id="to-do" class="status-filter filter-option" data-value="False" name="status-filter" value="False">
                                 <label for="to-do">To do</label>
                             </div>
+                            <div>
+                                <input type="radio" id="status-all" class="status-filter filter-option" name="status-filter" data-value="all" value="all">
+                                <label for="status-all">All</label>
+                            </div>
                         </div>
-                        <button id="filter-btn" class="btn">Filter</button>
+                        <!-- <button id="filter-btn" class="btn">Filter</button> -->
                     </form>
                 </div>
                 <div class="task-container flex column">
-                    <div class="task flex">
-                        <div class="badge priority-badge">!!!</div>
-                        <div class="task-tags">
-                            <div class="tag">PC</div>
-                            <div class="tag">Code</div>
-                            <div class="tag">Need</div>
-                        </div>
-                        <p class="task description">Some random task to do</p>
-                        <p id="task-due-date">03/08/2022</p>
-                        <div>
-                            <input type="checkbox" id="task-status" class="task-status">
-                            <label for="task-status"><span class="sr-only">Status</span>Done ?</label>
-                        </div>
-                    </div>
+                    <!-- Task list comes here -->
                 </div>
             </div>
         </section>
@@ -161,6 +194,7 @@
     <script src="./JS/tasks/Tasks.js"></script>
     <script src="./JS/tasks/TaskList.js"></script>
     <script src="./JS/tasks/TaskNotification.js"></script>
+    <script src="./JS/tasks/Filter.js"></script>
 
     <script src="./JS/app.js"></script>
 </body>
