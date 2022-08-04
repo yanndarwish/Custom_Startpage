@@ -4,13 +4,14 @@ class TaskList {
         this.$container = document.querySelector('.task-container')
     }
 
-    render(Tasks) {
+    render() {
+        this.sort()
         const notifications = new TaskNotification()
         notifications.render()
-        
+
         this.$container.innerHTML = ""
-        if (Tasks) {
-            Tasks.forEach(task => {
+        if (this.Tasks) {
+            this.Tasks.forEach(task => {
                 this.$wrapper = document.createElement('div')
                 this.$wrapper.classList.add('task', 'flex', task.priority, task.done ? 'done': 'to-do')
     
@@ -42,6 +43,23 @@ class TaskList {
         }
     }
 
+    sort() {
+        console.log(this.Tasks)
+        // sort by date
+        this.Tasks = this.Tasks.sort(function (a, b) {
+            return +new Date(a.due_date) - +new Date(b.due_date)
+        })
+        // sort by priority
+        this.Tasks.sort((a, b) => a.priority.localeCompare(b.priority))
+        // sort by status
+        this.Tasks.sort(function(a, b) {
+            // true values first
+            // return (a.done === b.done)? 0 : a? -1 : 1;
+            // false values first
+            return (a.done === b.done)? 0 : a.done? 1 : -1;
+        });
+    }
+
     handleDeleteBtn() {
         document.querySelectorAll('.delete-task').forEach(btn => {
             btn.addEventListener('click', e => {
@@ -49,7 +67,7 @@ class TaskList {
                 let myTasks = JSON.parse(localStorage.getItem('tasks'))
                 let selectedTask = myTasks.find(elt => elt.id == selectedId)
                 let remainingTasks = myTasks.filter(elt => elt !== selectedTask)
-                
+                this.Tasks = remainingTasks
                 localStorage.setItem('tasks', JSON.stringify(remainingTasks))
                 this.render(remainingTasks)
 
@@ -74,12 +92,14 @@ class TaskList {
                     e.target.parentNode.parentNode.parentNode.classList.remove('done')
                 }
                 localStorage.setItem('tasks', JSON.stringify(myTasks))
-
+                this.Tasks = myTasks
                 const notifications = new TaskNotification()
                 notifications.render()
 
                 const myFilter = new Filter()
                 myFilter.updateFilter()
+
+                this.render()
             })
         })
     }

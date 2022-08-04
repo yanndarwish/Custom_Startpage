@@ -89,6 +89,6 @@ class Tasks {
     displayTasks() {
         // display all the tasks in DOM
         const tasklist = new TaskList(this.Tasks)
-        tasklist.render(this.Tasks)
+        tasklist.render()
     }
 }
