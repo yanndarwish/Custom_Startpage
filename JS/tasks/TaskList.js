@@ -10,7 +10,7 @@ class TaskList {
         if (Tasks) {
             Tasks.forEach(task => {
                 this.$wrapper = document.createElement('div')
-                this.$wrapper.classList.add('task', 'flex', task.priority)
+                this.$wrapper.classList.add('task', 'flex', task.priority, task.done ? 'done': '')
     
                 const taskItem = `
                 <button class="btn delete-task" data-id="${task.id}">
@@ -22,7 +22,7 @@ class TaskList {
                 <div class="task-infos flex">
                     <p id="task-due-date">${task.due_date}</p>
                     <div>
-                        <input type="checkbox" id="task-status-${task.id}" class="task-status" data-id="${task.id}">
+                        <input type="checkbox" id="task-status-${task.id}" class="task-status" data-id="${task.id}" ${task.done ? 'checked': ''}>
                         <label class="status-label flex center" for="task-status-${task.id}"><span class="sr-only">Status</span><i class="fas fa-check-circle"></i></label>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ class TaskList {
                     selectedTask.done = false
                     e.target.parentNode.parentNode.parentNode.classList.remove('done')
                 }
-                console.log(selectedTask)
+                localStorage.setItem('tasks', JSON.stringify(myTasks))
             })
         })
     }

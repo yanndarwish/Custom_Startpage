@@ -358,31 +358,31 @@ header {
 }
 
 .computer {
-    background-image: url(/assets/icons/laptop-solid.svg);
+    background-image: url(./assets/icons/laptop-solid.svg);
 }
 
 .irl {
-    background-image: url(/assets/icons/sun-solid.svg);
+    background-image: url(./assets/icons/sun-solid.svg);
 }
 
 .code {
-    background-image: url(/assets/icons/code-solid.svg);
+    background-image: url(./assets/icons/code-solid.svg);
 }
 
 .book {
-    background-image: url(/assets/icons/book-solid.svg);
+    background-image: url(./assets/icons/book-solid.svg);
 }
 
 .sport {
-    background-image: url(/assets/icons/dumbbell-solid.svg);
+    background-image: url(./assets/icons/dumbbell-solid.svg);
 }
 
 .need {
-    background-image: url(/assets/icons/stethoscope-solid.svg);
+    background-image: url(./assets/icons/stethoscope-solid.svg);
 }
 
 .want {
-    background-image: url(/assets/icons/heart-solid.svg);
+    background-image: url(./assets/icons/heart-solid.svg);
 }
 
 .task-description {
