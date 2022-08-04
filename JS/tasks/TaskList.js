@@ -5,12 +5,14 @@ class TaskList {
     }
 
     render(Tasks) {
-        console.log(Tasks)
+        // todo add notification to show number of tasks to do !
+        const notifications = new TaskNotification()
+        notifications.render()
         this.$container.innerHTML = ""
         if (Tasks) {
             Tasks.forEach(task => {
                 this.$wrapper = document.createElement('div')
-                this.$wrapper.classList.add('task', 'flex', task.priority, task.done ? 'done': '')
+                this.$wrapper.classList.add('task', 'flex', task.priority, task.done ? 'done': 'to-do')
     
                 const taskItem = `
                 <button class="btn delete-task" data-id="${task.id}">
@@ -50,11 +52,13 @@ class TaskList {
                 
                 localStorage.setItem('tasks', JSON.stringify(remainingTasks))
                 this.render(remainingTasks)
+
+                const notifications = new TaskNotification()
+                notifications.render()      
             })
         })
     }
 
-    // todo handle done button
     handleDoneBtn() {
         document.querySelectorAll('.task-status').forEach(btn => {
             btn.addEventListener('click', e => {
@@ -70,6 +74,9 @@ class TaskList {
                     e.target.parentNode.parentNode.parentNode.classList.remove('done')
                 }
                 localStorage.setItem('tasks', JSON.stringify(myTasks))
+
+                const notifications = new TaskNotification()
+                notifications.render()
             })
         })
     }

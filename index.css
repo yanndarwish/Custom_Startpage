@@ -192,6 +192,26 @@ header {
     -o-transform: translateX(100%);
 }
 
+#task-notification {
+    position:absolute;
+    top:0;
+    right:0;
+    transform:translateX(50%) translateY(-50%);
+    width:30px;
+    aspect-ratio: 1;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    -webkit-transform:translateX(50%) translateY(-50%);
+    -moz-transform:translateX(50%) translateY(-50%);
+    -ms-transform:translateX(50%) translateY(-50%);
+    -o-transform:translateX(50%) translateY(-50%);
+    background-color: red;
+    color:white;
+}
+
 #task-section:hover #task-btn {
     opacity:0;
 }

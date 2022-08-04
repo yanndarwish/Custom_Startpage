@@ -27,7 +27,6 @@ class Tasks {
     }
 
     handleAddBtn() {
-        // todo add notification to show number of tasks to do !
         this.$addTaskBtn.addEventListener('click', e => {
             e.preventDefault()
             // check for preexisting tasks and instanciate id
