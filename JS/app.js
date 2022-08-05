@@ -20,6 +20,7 @@ class App {
         this.date.render()
 
         // task section
+        this.tasksMaster.makeKeyboardAccesible()
         this.tasksMaster.handleEditBtn()
         this.tasksMaster.handleAddBtn()
         this.tasksMaster.displayTasks()

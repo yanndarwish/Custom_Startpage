@@ -12,7 +12,7 @@
     <!-- accueil section (greeting, date, time, random quote)-->
     <header>
         <div>
-            <h1 class="welcome">Welcome <span id="username">User</span></h1>
+            <h1 class="welcome" tabindex="0">Welcome <span id="username">User</span></h1>
             <h2 id="quote">insert a random quote</h2>
         </div>
         <div>
@@ -23,7 +23,7 @@
     <main>
         <!-- todo: todo list section with tags (task irl, task geeky, ideas, envy ...) -->
         <section id="task-section" class="section">
-            <button id="task-btn" class="btn">
+            <button id="task-btn" class="btn" aria-expanded="false">
                 Tasks
                 <div id="task-notification" class="flex center"></div>
             </button>
@@ -34,7 +34,7 @@
                 <form action="" class="flex column">
                     <label for="task-input"><span class="sr-only">Add Task</span></label>
                     <input type="text" id="task-description">
-                    <button class="btn handle-task-settings" aria-expanded="false"><span class="sr-only">Add</span>+</button>
+                    <button class="btn handle-task-settings" aria-expanded="false" tabindex="0"><span class="sr-only">Add</span>+</button>
                 </form>
                 <div id="add-task-overlay" class="overlay">
                     <div id="add-task-modal" class="modal flex column">
@@ -49,15 +49,15 @@
                                     <div class="flex">
                                         <div>
                                             <input type="radio" id="high" name="task-priority" value="high">
-                                            <label for="high">!!!</label>
+                                            <label for="high" tabindex="0">!!!</label>
                                         </div>
                                         <div>
                                             <input type="radio" id="medium" name="task-priority" value="medium" checked>
-                                            <label for="medium">!!</label>
+                                            <label for="medium" tabindex="0">!!</label>
                                         </div>
                                         <div>
                                             <input type="radio" id="small" name="task-priority" value="small">
-                                            <label for="small">!</label>
+                                            <label for="small" tabindex="0">!</label>
                                         </div>
                                     </div>
                                 </div>
@@ -66,31 +66,31 @@
                                     <div class="flex">
                                         <div>
                                             <input type="checkbox" id="computer" class="taglist" name="computer">
-                                            <label for="computer">Computer</label>
+                                            <label for="computer" tabindex="0">Computer</label>
                                         </div>
                                         <div>
                                             <input type="checkbox" id="irl" class="taglist" name="irl">
-                                            <label for="irl">IRL</label>
+                                            <label for="irl" tabindex="0">IRL</label>
                                         </div>
                                         <div>
                                             <input type="checkbox" id="code" class="taglist" name="code">
-                                            <label for="code">Code</label>
+                                            <label for="code" tabindex="0">Code</label>
                                         </div>
                                         <div>
                                             <input type="checkbox" id="book" class="taglist" name="book">
-                                            <label for="book">Book</label>
+                                            <label for="book" tabindex="0">Book</label>
                                         </div>
                                         <div>
                                             <input type="checkbox" id="sport" class="taglist" name="sport">
-                                            <label for="sport">Sport</label>
+                                            <label for="sport" tabindex="0">Sport</label>
                                         </div>
                                         <div>
                                             <input type="checkbox" id="want" class="taglist" name="want">
-                                            <label for="want">Want</label>
+                                            <label for="want" tabindex="0">Want</label>
                                         </div>
                                         <div>
                                             <input type="checkbox" id="need" class="taglist" name="need">
-                                            <label for="need">Need</label>
+                                            <label for="need" tabindex="0">Need</label>
                                         </div>
                                     </div>
                                 </div>
@@ -112,65 +112,65 @@
                             <h4>Priority</h4>
                             <div>
                                 <input type="radio" id="priority-high" class="priority-filter filter-option" name="priority-filter" data-value="high" value="high">
-                                <label for="priority-high">High</label>
+                                <label for="priority-high" tabindex="0">High</label>
                             </div>
                             <div>
                                 <input type="radio" id="priority-medium" class="priority-filter filter-option" name="priority-filter" data-value="medium" value="medium">
-                                <label for="priority-medium">Medium</label>
+                                <label for="priority-medium" tabindex="0">Medium</label>
                             </div>
                             <div>
                                 <input type="radio" id="priority-small" class="priority-filter filter-option" name="priority-filter" data-value="small" value="small">
-                                <label for="priority-small">Small</label>
+                                <label for="priority-small" tabindex="0">Small</label>
                             </div>
                             <div>
                                 <input type="radio" id="priority-all" class="priority-filter filter-option" name="priority-filter" data-value="all" value="all">
-                                <label for="priority-all">All</label>
+                                <label for="priority-all" tabindex="0">All</label>
                             </div>
                         </div>
                         <div class="tag-filter-container flex">
                             <h4>Tags</h4>
                             <div>
                                 <input type="checkbox" id="filter-computer" class="tag-filter filter-option" data-value="computer" name="filter-computer">
-                                <label for="filter-computer">Computer</label>
+                                <label for="filter-computer" tabindex="0">Computer</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="filter-irl" class="tag-filter filter-option" data-value="irl" name="filter-irl">
-                                <label for="filter-irl">IRL</label>
+                                <label for="filter-irl" tabindex="0">IRL</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="filter-code" class="tag-filter filter-option" data-value="code" name="filter-code">
-                                <label for="filter-code">Code</label>
+                                <label for="filter-code" tabindex="0">Code</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="filter-book" class="tag-filter filter-option" data-value="book" name="filter-book">
-                                <label for="filter-book">Book</label>
+                                <label for="filter-book" tabindex="0">Book</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="filter-sport" class="tag-filter filter-option" data-value="sport" name="filter-sport">
-                                <label for="filter-sport">Sport</label>
+                                <label for="filter-sport" tabindex="0">Sport</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="filter-want" class="tag-filter filter-option" data-value="want" name="filter-want">
-                                <label for="filter-want">Want</label>
+                                <label for="filter-want" tabindex="0">Want</label>
                             </div>
                             <div>
                                 <input type="checkbox" id="filter-need" class="tag-filter filter-option" data-value="need" name="filter-need">
-                                <label for="filter-need">Need</label>
+                                <label for="filter-need" tabindex="0">Need</label>
                             </div>
                         </div>
                         <div class="status-filter-container flex">
                             <h4>Status</h4>
                             <div>
                                 <input type="radio" id="done" class="status-filter filter-option" data-value="True" name="status-filter" value="True">
-                                <label for="done">Done</label>
+                                <label for="done" tabindex="0">Done</label>
                             </div>
                             <div>
                                 <input type="radio" id="to-do" class="status-filter filter-option" data-value="False" name="status-filter" value="False">
-                                <label for="to-do">To do</label>
+                                <label for="to-do" tabindex="0">To do</label>
                             </div>
                             <div>
                                 <input type="radio" id="status-all" class="status-filter filter-option" name="status-filter" data-value="all" value="all">
-                                <label for="status-all">All</label>
+                                <label for="status-all" tabindex="0">All</label>
                             </div>
                         </div>
                         <!-- <button id="filter-btn" class="btn">Filter</button> -->

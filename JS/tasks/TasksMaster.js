@@ -6,6 +6,36 @@ class TasksMaster {
         this.Tasks         = JSON.parse(localStorage.getItem('tasks'))
     }
 
+    makeKeyboardAccesible() {
+        document.addEventListener('keydown', e => {
+            if (e.key === 't') {
+                document.querySelector('#task-btn').focus()
+            } else if (e.key === 'Escape') {
+                document.querySelector('.welcome').focus()
+                document.querySelector('#task-section').classList.remove('open')
+                document.querySelector('#task-btn').setAttribute('aria-expanded', false)
+            } else if (e.key === ' ') {
+                let deleteArray = document.querySelectorAll('.delete-task')
+                if (deleteArray.length > 0) {
+                    deleteArray[0].focus()
+                }
+            }
+        })
+        document.querySelector('#task-btn').addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                if (e.target.getAttribute('aria-expanded') === 'false') {
+                    console.log('false')
+                    document.querySelector('#task-section').classList.add('open')
+                    e.target.setAttribute('aria-expanded', true)
+                } else {
+                    console.log('true')
+                    document.querySelector('#task-section').classList.remove('open')
+                    e.target.setAttribute('aria-expanded', false)
+                }
+            }
+        })
+    }
+
     handleEditBtn() {
         this.$modalBtns.forEach(btn => {
             btn.addEventListener('click', e => {

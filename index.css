@@ -213,9 +213,15 @@ header {
     color:white;
 }
 
-#task-section:hover #task-btn {
+#task-section:hover #task-btn,
+#task-section:focus-within #task-btn {
     opacity:0;
 }
+
+#task-btn:focus {
+    opacity:1 !important;
+}
+
 /* display section on btn hover */
 #task-btn:hover + #task-section,
 #task-section:hover{
@@ -225,6 +231,22 @@ header {
     -ms-transform:translateX(0%);
     -o-transform:translateX(0%);
 }
+
+#task-section.open{
+    transform:translateX(0%);
+    -webkit-transform:translateX(0%);
+    -moz-transform:translateX(0%);
+    -ms-transform:translateX(0%);
+    -o-transform:translateX(0%);
+}
+
+/* #task-section:not(:focus-within) {
+    transform:translateX(-100%);
+    -webkit-transform:translateX(-100%);
+    -moz-transform:translateX(-100%);
+    -ms-transform:translateX(-100%);
+    -o-transform:translateX(-100%);
+} */
 
 .section-title,
 .modal-title {

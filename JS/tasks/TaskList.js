@@ -26,7 +26,7 @@ class TaskList {
                     <p id="task-due-date">${task.due_date}</p>
                     <div>
                         <input type="checkbox" id="task-status-${task.id}" class="task-status" data-id="${task.id}" ${task.done ? 'checked': ''}>
-                        <label class="status-label flex center" for="task-status-${task.id}"><span class="sr-only">Status</span><i class="fas fa-check-circle"></i></label>
+                        <label class="status-label flex center" for="task-status-${task.id}" tabindex="0"><span class="sr-only">Status</span><i class="fas fa-check-circle"></i></label>
                     </div>
                 </div>
                 `
