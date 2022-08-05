@@ -7,9 +7,11 @@ class TasksMaster {
     }
 
     makeKeyboardAccesible() {
-        document.addEventListener('keydown', e => {
+        document.addEventListener('keyup', e => {
             if (e.key === 't') {
-                document.querySelector('#task-btn').focus()
+                document.querySelector('#task-description').focus()
+                document.querySelector('#task-section').classList.add('open')
+                e.target.setAttribute('aria-expanded', true)
             } else if (e.key === 'Escape') {
                 document.querySelector('.welcome').focus()
                 document.querySelector('#task-section').classList.remove('open')
@@ -24,11 +26,9 @@ class TasksMaster {
         document.querySelector('#task-btn').addEventListener('keydown', e => {
             if (e.key === 'Enter') {
                 if (e.target.getAttribute('aria-expanded') === 'false') {
-                    console.log('false')
                     document.querySelector('#task-section').classList.add('open')
                     e.target.setAttribute('aria-expanded', true)
                 } else {
-                    console.log('true')
                     document.querySelector('#task-section').classList.remove('open')
                     e.target.setAttribute('aria-expanded', false)
                 }
