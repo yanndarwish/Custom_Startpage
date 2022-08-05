@@ -20,7 +20,8 @@
 
 body {
     background-color: var(--clr-dark-primary);
-    color:var(--clr-dark-quintery)
+    color:var(--clr-dark-quintery);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 img {
@@ -318,20 +319,25 @@ header {
 .high {
     background: linear-gradient(.25turn, rgba(255, 0, 0, 0.3), 5%,  var(--clr-dark-quartery));
     color:red;
+    border:1px solid red;
+
 }
 
 .medium {
     background: linear-gradient(.25turn, rgba(255, 165, 0, 0.3), 5%,  var(--clr-dark-quartery));
     color:orange;
+    border:1px solid orange;
 }
 
 .small {
     background: linear-gradient(.25turn, rgba(0, 149, 248, 0.3), 5%,  var(--clr-dark-quartery));
-    color: white;
+    color: rgb(0, 149, 248);
+    border:1px solid rgb(0, 149, 248);
 }
 
 .done {
     background: linear-gradient(.25turn, rgba(0, 128, 0, 0.3), 5%,  var(--clr-dark-quartery));
+    border:1px solid rgb(49, 168, 49);
     color:rgb(49, 168, 49);
 }
 

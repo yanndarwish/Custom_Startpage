@@ -1,6 +1,6 @@
 class TaskList {
     constructor(Tasks) {
-        this.Tasks = Tasks
+        this.Tasks      = Tasks
         this.$container = document.querySelector('.task-container')
     }
 
@@ -53,8 +53,6 @@ class TaskList {
         this.Tasks.sort((a, b) => a.priority.localeCompare(b.priority))
         // sort by status
         this.Tasks.sort(function(a, b) {
-            // true values first
-            // return (a.done === b.done)? 0 : a? -1 : 1;
             // false values first
             return (a.done === b.done)? 0 : a.done? 1 : -1;
         });
@@ -63,10 +61,11 @@ class TaskList {
     handleDeleteBtn() {
         document.querySelectorAll('.delete-task').forEach(btn => {
             btn.addEventListener('click', e => {
-                let selectedId = e.target.getAttribute('data-id')
-                let myTasks = JSON.parse(localStorage.getItem('tasks'))
-                let selectedTask = myTasks.find(elt => elt.id == selectedId)
-                let remainingTasks = myTasks.filter(elt => elt !== selectedTask)
+                let selectedId     = e.target.getAttribute('data-id'),
+                    myTasks        = JSON.parse(localStorage.getItem('tasks')),
+                    selectedTask   = myTasks.find(elt => elt.id == selectedId),
+                    remainingTasks = myTasks.filter(elt => elt !== selectedTask)
+
                 this.Tasks = remainingTasks
                 localStorage.setItem('tasks', JSON.stringify(remainingTasks))
                 this.render(remainingTasks)
@@ -80,9 +79,9 @@ class TaskList {
     handleDoneBtn() {
         document.querySelectorAll('.task-status').forEach(btn => {
             btn.addEventListener('click', e => {
-                let selectedId = e.target.getAttribute('data-id')
-                let myTasks = JSON.parse(localStorage.getItem('tasks'))
-                let selectedTask = myTasks.find(elt => elt.id == selectedId)
+                let selectedId   = e.target.getAttribute('data-id'),
+                    myTasks      = JSON.parse(localStorage.getItem('tasks')),
+                    selectedTask = myTasks.find(elt => elt.id == selectedId)
 
                 if (e.target.checked) {
                     selectedTask.done = true
@@ -91,8 +90,10 @@ class TaskList {
                     selectedTask.done = false
                     e.target.parentNode.parentNode.parentNode.classList.remove('done')
                 }
+
                 localStorage.setItem('tasks', JSON.stringify(myTasks))
                 this.Tasks = myTasks
+                
                 const notifications = new TaskNotification()
                 notifications.render()
 

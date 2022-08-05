@@ -1,16 +1,15 @@
 class Filter {
     constructor() {
-        // this.$filterBtn = document.getElementById('filter-btn')
-        this.$filterOptions = document.querySelectorAll('.filter-option')
+        this.$filterOptions   = document.querySelectorAll('.filter-option')
         this.$priorityFilters = document.querySelectorAll('.priority-filter')
-        this.$tagFilters = document.querySelectorAll('.tag-filter')
-        this.$statusFilters = document.querySelectorAll('.status-filter')
-        this.selectedPriority
-        this.selectedTags = []
-        this.selectedStatus
+        this.$tagFilters      = document.querySelectorAll('.tag-filter')
+        this.$statusFilters   = document.querySelectorAll('.status-filter')
+        this.bufferTasks      = JSON.parse(localStorage.getItem('tasks'))
+        this.Tasks            = JSON.parse(localStorage.getItem('tasks'))
         this.filteredTasks
-        this.bufferTasks = JSON.parse(localStorage.getItem('tasks'))
-        this.Tasks = JSON.parse(localStorage.getItem('tasks'))
+        this.selectedTags     = []
+        this.selectedPriority
+        this.selectedStatus
     }
 
     updateFilter() {
@@ -39,21 +38,21 @@ class Filter {
         this.filteredTasks = []
         if (priority) {
             if (priority !== 'all') {
-                let matches = tasks.filter(elt => elt.priority === priority)
+                let matches        = tasks.filter(elt => elt.priority === priority)
                 this.filteredTasks = matches
-                this.bufferTasks = this.filteredTasks
+                this.bufferTasks   = this.filteredTasks
             } else {
-                this.bufferTasks = tasks
+                this.bufferTasks   = tasks
                 this.filteredTasks = tasks
             }
         }
         if (tags.length > 0) {
             let loopTasks = this.bufferTasks
             tags.forEach(tag => {
-                let matches = loopTasks.filter(elt => elt.tags.includes(tag))
-                loopTasks = matches
+                let matches        = loopTasks.filter(elt => elt.tags.includes(tag))
+                loopTasks          = matches
                 this.filteredTasks = matches
-                this.bufferTasks = this.filteredTasks
+                this.bufferTasks   = this.filteredTasks
                 })
         }  else {
             this.filteredTasks = this.bufferTasks
@@ -61,12 +60,11 @@ class Filter {
         if (status) {
             if (status !== 'all') {
                 status = (status === 'True')
-                let matches = this.bufferTasks.filter(elt => elt.done === status)
+                let matches        = this.bufferTasks.filter(elt => elt.done === status)
                 this.filteredTasks = matches
             } else {
                 this.filteredTasks = this.bufferTasks
-
-                this.bufferTasks = tasks
+                this.bufferTasks   = tasks
             }
         }
     

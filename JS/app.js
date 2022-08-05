@@ -22,8 +22,7 @@ class App {
         const myFilter = new Filter()
         myFilter.updateFilter()
 
-        // const tasklist = new TaskList()
-        // tasklist.render(JSON.parse(localStorage.getItem('tasks')))
+        // todo archive the done tasks in local storage to keep data 
     }
 }
 
