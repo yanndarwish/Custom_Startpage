@@ -93,7 +93,7 @@ class TaskList {
 
                 localStorage.setItem('tasks', JSON.stringify(myTasks))
                 this.Tasks = myTasks
-                
+
                 const notifications = new TaskNotification()
                 notifications.render()
 

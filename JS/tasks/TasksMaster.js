@@ -1,4 +1,4 @@
-class Tasks {
+class TasksMaster {
     constructor() {
         this.$modalOverlay = document.getElementById('add-task-overlay')
         this.$modalBtns    = document.querySelectorAll('.handle-task-settings')
@@ -23,7 +23,6 @@ class Tasks {
                 }
             })
         })
-        this.handleAddBtn()
     }
 
     handleAddBtn() {
@@ -78,7 +77,7 @@ class Tasks {
         checkboxes.forEach(checkbox => {
             checkbox.checked = false
         })
-        
+
         document.querySelector("input[type='date']").value = ""
         document.querySelector('#task-description').value  = ""
         // close task settings modal

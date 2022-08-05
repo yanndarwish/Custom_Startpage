@@ -1,26 +1,30 @@
 class App {
     constructor() {
+        this.username    = new Username()
+        this.quote       = new QuoteGenerator()
+        this.date        = new MyDate()
+
+        this.tasksMaster = new TasksMaster()
+        this.filter      = new Filter()
     }
 
     main() {
-        const username = new Username()
-        username.render()
+        // header
+        this.username.render()
 
-        const quote = new QuoteGenerator()
-        quote.render()
+        this.quote.render()
 
         const clock = new Clock()
         setInterval(function(){clock.render()} , 1000);
 
-        const date = new MyDate()
-        date.render()
+        this.date.render()
 
-        const task = new Tasks()
-        task.handleEditBtn()
-        task.displayTasks()
+        // task section
+        this.tasksMaster.handleEditBtn()
+        this.tasksMaster.handleAddBtn()
+        this.tasksMaster.displayTasks()
 
-        const myFilter = new Filter()
-        myFilter.updateFilter()
+        this.filter.updateFilter()
 
         // todo archive the done tasks in local storage to keep data 
     }
