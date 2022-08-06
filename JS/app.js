@@ -6,6 +6,8 @@ class App {
 
         this.tasksMaster = new TasksMaster()
         this.filter      = new Filter()
+
+        this.links = new Links()
     }
 
     main() {
@@ -26,6 +28,9 @@ class App {
         this.tasksMaster.displayTasks()
 
         this.filter.updateFilter()
+
+        // Link section
+        this.links.init()
 
         // todo archive the done tasks in local storage to keep data 
     }

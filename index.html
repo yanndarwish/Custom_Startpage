@@ -14,13 +14,14 @@
         <div>
             <h1 class="welcome" tabindex="0">Welcome <span id="username">User</span></h1>
             <h2 id="quote">insert a random quote</h2>
+            <h2 >What are you not doing that you know you should do ?</h2>
         </div>
         <div>
             <h3 id="time"></h3>
             <p id="date"></p>
         </div>
     </header>
-    <main>
+    <main class="flex">
         <!-- todo: todo list section with tags (task irl, task geeky, ideas, envy ...) -->
         <section id="task-section" class="section">
             <button id="task-btn" class="btn" aria-expanded="false">
@@ -33,7 +34,7 @@
             <div class="section-content flex column">
                 <form action="" class="flex column">
                     <label for="task-input"><span class="sr-only">Add Task</span></label>
-                    <input type="text" id="task-description">
+                    <input type="text" id="task-description" placeholder="Task decription">
                     <button class="btn handle-task-settings" aria-expanded="false" tabindex="0"><span class="sr-only">Add</span>+</button>
                 </form>
                 <div id="add-task-overlay" class="overlay">
@@ -181,6 +182,48 @@
                 </div>
             </div>
         </section>
+        <section id="main-section" class="section">
+            <div class="section-header">
+                <button id="open-link-editor" class="btn">Add Link</button>
+                <div class="link-editor flex column">
+                    <div class="link-editor-header">
+                        <h3 class="section-title">Links</h3>
+                    </div>
+                    <div class="link-editor-content flex column">
+                        <h4>Link</h4>
+                        <div class="flex">
+                            <!-- <label for="link-name">Name</label> -->
+                            <input type="text" id="link-name" placeholder="Name">
+                            
+                        </div>
+                        <div class="flex">
+                            <!-- <label for="link-input">Link</label> -->
+                            <input type="text" id="link-url" placeholder="URL">
+                        </div>
+                        <div class="link-categories flex column">
+                            <h4>Category</h4>
+                            <div class="link-radio flex">
+                                <div>
+                                    <input type="radio" id="category-work" class="link-category" name="link-category" data-value="work" value="work">
+                                    <label for="category-work" tabindex="0">Work</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="category-code" class="link-category" name="link-category" data-value="code" value="code">
+                                    <label for="category-code" tabindex="0">Code</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="category-chill" class="link-category" name="link-category" data-value="chill" value="chill">
+                                    <label for="category-chill" tabindex="0">Chill</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="add-link" class="btn">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content links-container">
+            </div>
+        </section>
         <!-- todo: tile editor, to create update, delete a tile -->
         <!-- todo: book to read section, search algo from a book api, formatting the results into sql database -->
         <!-- todo: for the boook section, create the perfect book object, with all the properties, and methods (api calls) -->
@@ -198,6 +241,8 @@
     <script src="./JS/tasks/TaskList.js"></script>
     <script src="./JS/tasks/TaskNotification.js"></script>
     <script src="./JS/tasks/Filter.js"></script>
+    
+    <script src="./JS/links/Links.js"></script>
 
     <script src="./JS/app.js"></script>
 </body>

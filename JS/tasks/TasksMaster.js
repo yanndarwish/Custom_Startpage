@@ -122,4 +122,8 @@ class TasksMaster {
         const tasklist = new TaskList(this.Tasks)
         tasklist.render()
     }
+
+    // todo make T press ineffective if Link section is open
+
+    // todo make Space ineffective when task description input is in focus
 }

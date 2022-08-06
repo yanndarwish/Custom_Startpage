@@ -48,6 +48,12 @@ button {
     cursor: pointer;
 }
 
+a {
+    display:inline-block;
+    text-decoration: none;
+    color: white;
+}
+
 li {
     list-style: none;
 }
@@ -453,4 +459,32 @@ header {
     -moz-transform:scale(1.2);
     -ms-transform:scale(1.2);
     -o-transform:scale(1.2);
+}
+
+/* LINKS */
+
+.link-editor {
+    display:none;
+}
+
+.open-editor {
+    display:block;
+}
+
+.link {
+    padding:1rem;
+    background:none;
+    transition:0.2s;
+    -webkit-transition:0.2s;
+    -moz-transition:0.2s;
+    -ms-transition:0.2s;
+    -o-transition:0.2s;
+}
+
+.link:hover {
+     transform:scale(1.2);
+     -webkit-transform:scale(1.2);
+     -moz-transform:scale(1.2);
+     -ms-transform:scale(1.2);
+     -o-transform:scale(1.2);
 }
