@@ -1,6 +1,6 @@
 class Links {
     constructor(LinkCreator) {
-        this.Links =
+        this.Links = []
         this.LinkCreator = LinkCreator
 
         this.$editorBtn = document.getElementById('open-link-editor')
@@ -11,10 +11,11 @@ class Links {
 
     init() {
         this.handleClick()
-        this.Links = this.getFromLocalStorage()
+        this.Links = Storage.getFromLocalStorage('links')
         if (this.Links.length > 0) {
             this.renderLinksInDom()
         }
+        this.handleKeyboard()
     }
 
     handleClick() {
@@ -39,6 +40,16 @@ class Links {
         })
     }
 
+    handleKeyboard() {
+        document.addEventListener('keyup', e => {
+            if (e.key === 'l') {
+                if (!document.querySelector('#task-section').contains(document.activeElement)) {
+                    document.querySelectorAll('.link')[0].focus()
+                }
+            }
+        })
+    }
+
     toggleEditor() {
         if (this.$editor.classList.contains('open-editor')) {
             this.$editor.classList.remove('open-editor')
@@ -50,18 +61,8 @@ class Links {
     createNewLink(Link) {
         console.log(Link)
         this.Links.push(Link)
-        this.sendToLocalStorage(this.Links)
+        Storage.sendToLocalStorage('links', this.Links)
         this.renderLinksInDom()
-    }
-
-    getFromLocalStorage() {
-        return JSON.parse(localStorage.getItem('links')) 
-            ? JSON.parse(localStorage.getItem('links'))
-            : []
-    }
-
-    sendToLocalStorage(Links) {
-        localStorage.setItem('links', JSON.stringify(Links))
     }
 
     renderLinksInDom() {
@@ -84,3 +85,5 @@ class Links {
 
     // careful to make it unusable if task section is open
 }
+
+// todo clean task class, move localstorage functions to Storage class

@@ -9,17 +9,23 @@ class TasksMaster {
     makeKeyboardAccesible() {
         document.addEventListener('keyup', e => {
             if (e.key === 't') {
-                document.querySelector('#task-description').focus()
-                document.querySelector('#task-section').classList.add('open')
-                e.target.setAttribute('aria-expanded', true)
+                if (document.activeElement.tagName.toLowerCase() !== 'input') {
+                    document.querySelector('#task-description').focus()
+                    document.querySelector('#task-section').classList.add('open')
+                    e.target.setAttribute('aria-expanded', true)
+                }
             } else if (e.key === 'Escape') {
-                document.querySelector('.welcome').focus()
-                document.querySelector('#task-section').classList.remove('open')
-                document.querySelector('#task-btn').setAttribute('aria-expanded', false)
+                if (document.querySelector('#task-section').contains(document.activeElement)) {
+                    document.querySelector('.welcome').focus()
+                    document.querySelector('#task-section').classList.remove('open')
+                    document.querySelector('#task-btn').setAttribute('aria-expanded', false)
+                }
             } else if (e.key === ' ') {
-                let deleteArray = document.querySelectorAll('.delete-task')
-                if (deleteArray.length > 0) {
-                    deleteArray[0].focus()
+                if (document.activeElement === document.getElementById('task-description') && document.getElementById('task-description').value.length === 1) {
+                    let deleteArray = document.querySelectorAll('.delete-task')
+                    if (deleteArray.length > 0) {
+                        deleteArray[0].focus()
+                    }
                 }
             }
         })
@@ -122,8 +128,4 @@ class TasksMaster {
         const tasklist = new TaskList(this.Tasks)
         tasklist.render()
     }
-
-    // todo make T press ineffective if Link section is open
-
-    // todo make Space ineffective when task description input is in focus
 }
